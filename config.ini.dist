@@ -1,0 +1,2 @@
+[push_notification]
+webhook_url = "https://maker.ifttt.com/trigger/<your_applet_name>/with/key/<your_webhook_key>"

@@ -16,7 +16,7 @@
     "vendor-dir": "vendor"
   },
   "require": {
-    "php" : "^7.4",
+    "php": "^7.4",
     "ext-json": "*",
     "php-di/php-di": "^6",
     "doctrine/annotations": "^1",

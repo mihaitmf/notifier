@@ -30,7 +30,8 @@ class ExecutionStatistics
         $this->memoryMegabytesUsed = self::getMemoryMegabytesUsed();
     }
 
-    public function getPrintMessage(): string {
+    public function getPrintMessage(): string
+    {
         return sprintf(
             self::PRINT_FORMAT,
             $this->executionTimeSeconds,

@@ -1,5 +1,5 @@
 # Notifier project
-Notifications sender (push and email notifications)
+Notifications sender. Send push notifications to phone via IFTTT webhook.
 
 ## Send push notifications to phone via IFTTT webhook.
 
@@ -20,8 +20,8 @@ You can send a push notification to your IFTTT mobile app with a `message` and a
 
 Example command:
 * `php <script-name>.php "<message>" "<link (optional)>"`
-* Linux: `php run/notifier-push.php "hello my friend" "http://google.com"`
-* Windows: `php run\notifier-push.php "hello my friend" "http://google.com"`
+* Linux: `php bin/run.php notify:push "hello my friend" "http://google.com"`
+* Windows: `php bin\run.php notify:push "hello my friend" "http://google.com"`
 
 ### Imported as a library
 If you want to use this project as a library, you can use directly the `PushNotificationService` class.

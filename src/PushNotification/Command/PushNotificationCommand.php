@@ -3,39 +3,69 @@
 namespace Notifier\PushNotification\Command;
 
 use Notifier\PushNotification\PushNotificationService;
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputDefinition;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
 
-class PushNotificationCommand
+class PushNotificationCommand extends Command
 {
+    private const INPUT_MESSAGE = 'message';
+    private const INPUT_LINK_URL = 'linkURL';
+
     private PushNotificationService $pushNotificationService;
 
     public function __construct(PushNotificationService $pushNotificationService)
     {
+        parent::__construct();
         $this->pushNotificationService = $pushNotificationService;
     }
 
-    public function run(array $argv): void
+    protected function configure(): void
     {
-        if (count($argv) < 2) {
-            $this->printMessage(
-                'Insufficient arguments for the script. Example command: php <script-name>.php "<message>" "<link (optional)>"'
+        $commandName = 'notify:push';
+        $this->setName($commandName)
+            ->setDescription(
+                'Send push notification to phone via IFTTT webhook'
+            )
+            ->setHelp(
+                "Send push notification to phone via IFTTT webhook, containing a message and a link\r\n"
+                . "Example command: php <script-name>.php $commandName " . '"<message>" "<linkURL (optional)>"'
+            )
+            ->setDefinition(
+                new InputDefinition(
+                    [
+                        new InputArgument(
+                            self::INPUT_MESSAGE,
+                            InputArgument::REQUIRED,
+                            'The notification message; make sure to enclose it in double quotes: "<message>"',
+                        ),
+                        new InputArgument(
+                            self::INPUT_LINK_URL,
+                            InputArgument::OPTIONAL,
+                            '(Optional) An URL to send in the notification',
+                        ),
+                    ]
+                )
             );
-            return;
-        }
+    }
 
-        $message = $argv[1];
-        $linkUrl = $argv[2] ?? '';
+    protected function execute(InputInterface $input, OutputInterface $output): int
+    {
+        $message = $input->getArgument(self::INPUT_MESSAGE);
+        $linkUrl = $input->getArgument(self::INPUT_LINK_URL) ?? '';
 
         $response = $this->pushNotificationService->notify($message, $linkUrl);
 
         if ($response->isSuccessful()) {
-            $this->printMessage('SUCCESS! Push notification sent!');
-        } else {
-            $this->printMessage(sprintf('ERROR! %s', $response->getError()));
-        }
-    }
+            $output->writeln('SUCCESS! Push notification sent!');
 
-    private function printMessage(string $message): void
-    {
-        print("\n$message");
+            return Command::SUCCESS;
+        }
+
+        $output->writeln(sprintf('ERROR! %s', $response->getError()));
+
+        return Command::FAILURE;
     }
 }

@@ -20,11 +20,11 @@ class Container
     /**
      * @param string $name
      *
-     * @return object
+     * @return mixed
      * @throws DependencyException
      * @throws NotFoundException
      */
-    public static function get(string $name): object
+    public static function get(string $name)
     {
         return self::getContainer()->get($name);
     }

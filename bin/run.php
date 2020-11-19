@@ -16,10 +16,8 @@ $consoleEventListener = Container::get(ConsoleEventListener::class);
 
 /** @uses ConsoleEventListener::onCommandBegin() */
 /** @uses ConsoleEventListener::onCommandFinish() */
-/** @uses ConsoleEventListener::onCommandError() */
 $eventDispatcher->addListener(ConsoleEvents::COMMAND, [$consoleEventListener, 'onCommandBegin']);
 $eventDispatcher->addListener(ConsoleEvents::TERMINATE, [$consoleEventListener, 'onCommandFinish']);
-$eventDispatcher->addListener(ConsoleEvents::ERROR, [$consoleEventListener, 'onCommandError']);
 
 $app->setDispatcher($eventDispatcher);
 

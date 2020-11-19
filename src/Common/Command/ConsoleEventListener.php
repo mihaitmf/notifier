@@ -3,7 +3,6 @@
 namespace Notifier\Common\Command;
 
 use Symfony\Component\Console\Event\ConsoleCommandEvent;
-use Symfony\Component\Console\Event\ConsoleErrorEvent;
 use Symfony\Component\Console\Event\ConsoleTerminateEvent;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -30,15 +29,6 @@ class ConsoleEventListener
         $this->executionStatistics->end();
         $this->output->writeln(
             sprintf("\nCommand %s finished with exit code %s.", $event->getCommand()->getName(), $event->getExitCode())
-        );
-        $this->output->writeln($this->executionStatistics->getPrintMessage());
-    }
-
-    public function onCommandError(ConsoleErrorEvent $event): void
-    {
-        $this->executionStatistics->end();
-        $this->output->writeln(
-            sprintf("\nCommand %s exited with ERROR: %s.", $event->getCommand()->getName(), $event->getError()->getMessage())
         );
         $this->output->writeln($this->executionStatistics->getPrintMessage());
     }

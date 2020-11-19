@@ -45,6 +45,7 @@ class PushNotificationCommand extends Command
                             self::INPUT_LINK_URL,
                             InputArgument::OPTIONAL,
                             '(Optional) An URL to send in the notification',
+                            ''
                         ),
                     ]
                 )
@@ -54,7 +55,7 @@ class PushNotificationCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $message = $input->getArgument(self::INPUT_MESSAGE);
-        $linkUrl = $input->getArgument(self::INPUT_LINK_URL) ?? '';
+        $linkUrl = $input->getArgument(self::INPUT_LINK_URL);
 
         $response = $this->pushNotificationService->notify($message, $linkUrl);
 

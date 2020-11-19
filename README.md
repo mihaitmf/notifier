@@ -1,6 +1,12 @@
 # Notifier project
 Notifications sender. Send push notifications to phone via IFTTT webhook.
 
+[![Build Status](https://travis-ci.com/mihaitmf/notifier.svg?branch=master)](https://travis-ci.com/mihaitmf/notifier)
+
+## Requirements
+- [![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D7.4-blue)](https://php.net/)
+- composer
+
 ## Send push notifications to phone via IFTTT webhook.
 
 You must have an IFTTT (https://ifttt.com/) account and an applet with a webhook created.

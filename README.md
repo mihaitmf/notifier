@@ -19,7 +19,7 @@ IFTTT account.
 You can send a push notification to your IFTTT mobile app with a `message` and a `link` (URL).
 
 Example command:
-* `php <script-name>.php "<message>" "<link (optional)>"`
+* `php <script-name>.php notify:push "<message>" "<link (optional)>"`
 * Linux: `php bin/run.php notify:push "hello my friend" "http://google.com"`
 * Windows: `php bin\run.php notify:push "hello my friend" "http://google.com"`
 

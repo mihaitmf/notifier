@@ -6,15 +6,15 @@ use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Psr7\Request;
 use JsonException;
-use Notifier\Common\ConfigParser;
+use Notifier\Common\Config\Config;
 use RuntimeException;
 
 class PushNotificationService
 {
     private ClientInterface $httpClient;
-    private ConfigParser $config;
+    private Config $config;
 
-    public function __construct(ClientInterface $httpClient, ConfigParser $config)
+    public function __construct(ClientInterface $httpClient, Config $config)
     {
         $this->httpClient = $httpClient;
         $this->config = $config;

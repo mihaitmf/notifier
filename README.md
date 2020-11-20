@@ -35,13 +35,13 @@ If you want to use this project as a library, you can use directly the `PushNoti
 
 In order to instantiate it, you need concrete objects for its dependencies:
 * `ClientInterface`, from GuzzleHttp library
-* `ConfigParser`, internal class that requires the path to the `config ini` file
+* `Config`, created with the `ConfigIniParser` that requires the path to the `config ini` file
 
 Example of usage:
 ```
-$pushNotificationService = new PushNotificationService(
+$pushNotificationService = new Notifier\PushNotification\PushNotificationService(
     new GuzzleHttp\Client(),
-    Notifier\Common\ConfigParser::fromFile(__DIR__ . DIRECTORY_SEPARATOR . 'config.ini')
+    Notifier\Common\Config\ConfigIniParser::fromFile(__DIR__ . DIRECTORY_SEPARATOR . 'config.ini')
 );
 $pushNotificationService->notify('Hello my friend!', 'http://google.com');
 ```
@@ -51,9 +51,9 @@ Example for `php-di` definitions config file:
 ```
 return [
     GuzzleHttp\ClientInterface::class => DI\autowire(GuzzleHttp\Client::class),
-    Notifier\Common\ConfigParser::class => DI\factory(
+    Notifier\Common\Config\Config::class => DI\factory(
         function () {
-            return Notifier\Common\ConfigParser::fromFile(__DIR__ . DIRECTORY_SEPARATOR . 'config.ini');
+            return Notifier\Common\Config\ConfigIniParser::fromFile(__DIR__ . DIRECTORY_SEPARATOR . 'config.ini');
         }
     ),
 ];

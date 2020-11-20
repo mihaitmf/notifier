@@ -2,15 +2,16 @@
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
-use Notifier\Common\ConfigParser;
+use Notifier\Common\Config\Config;
+use Notifier\Common\Config\ConfigIniParser;
 use function DI\autowire;
 use function DI\factory;
 
 return [
     ClientInterface::class => autowire(Client::class),
-    ConfigParser::class => factory(
+    Config::class => factory(
         function () {
-            return ConfigParser::fromFile(__DIR__ . DIRECTORY_SEPARATOR . 'config.ini');
+            return ConfigIniParser::fromFile(__DIR__ . DIRECTORY_SEPARATOR . 'config.ini');
         }
     ),
 ];

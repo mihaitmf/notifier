@@ -6,15 +6,23 @@ use DI\Container as DIContainer;
 use DI\ContainerBuilder;
 use DI\DependencyException;
 use DI\NotFoundException;
+use InvalidArgumentException;
 
 class Container
 {
-    private const DI_CONFIG_PHP = 'di-config.php';
-
     private static ?DIContainer $container = null;
+    private static string $definitionsFilePath;
 
     private function __construct()
     {
+    }
+
+    public static function setDefinitionsFilePath(string $definitionsFilePath): void
+    {
+        if (!is_file($definitionsFilePath)) {
+            throw new InvalidArgumentException("The DI Container definitions config file could not be found at: $definitionsFilePath");
+        }
+        self::$definitionsFilePath = $definitionsFilePath;
     }
 
     /**
@@ -55,7 +63,7 @@ class Container
     {
         $containerBuilder = new ContainerBuilder();
         $containerBuilder->useAnnotations(true);
-        $containerBuilder->addDefinitions(dirname(__DIR__, 2) . DIRECTORY_SEPARATOR . self::DI_CONFIG_PHP);
+        $containerBuilder->addDefinitions(self::$definitionsFilePath);
 
         return $containerBuilder->build();
     }

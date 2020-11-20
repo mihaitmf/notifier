@@ -21,15 +21,22 @@ class ConsoleEventListener
     public function onCommandBegin(ConsoleCommandEvent $event): void
     {
         $this->executionStatistics->start();
-        $this->output->writeln(sprintf("Command %s started...\n", $event->getCommand()->getName()));
+        $this->output->writeln(sprintf(
+            "[%s] Command %s started...\n",
+            date('Y-m-d H:i:s'),
+            $event->getCommand()->getName()
+        ));
     }
 
     public function onCommandFinish(ConsoleTerminateEvent $event): void
     {
         $this->executionStatistics->end();
-        $this->output->writeln(
-            sprintf("\nCommand %s finished with exit code %s.", $event->getCommand()->getName(), $event->getExitCode())
-        );
         $this->output->writeln($this->executionStatistics->getPrintMessage());
+        $this->output->writeln(sprintf(
+            "\n[%s] Command %s finished with exit code %s.",
+            date('Y-m-d H:i:s'),
+            $event->getCommand()->getName(),
+            $event->getExitCode()
+        ));
     }
 }

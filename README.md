@@ -11,10 +11,10 @@ Notifications sender. Send push notifications to phone via IFTTT webhook.
 
 You must have an IFTTT (https://ifttt.com/) account and an applet with a webhook created.
 
-### Stand-alone CLI script
-First, you need to define a `config.ini` file in place of the `config.ini.dist` file,
+### Installation
+1. Run `composer update`
+2. Create the `config.ini` file in place of the `config.ini.dist` file,
 in the root of the project, with this structure:
-
 ```
 [push_notification]
 webhook_url = "https://maker.ifttt.com/trigger/<your_applet_name>/with/key/<your_webhook_key>"
@@ -22,6 +22,7 @@ webhook_url = "https://maker.ifttt.com/trigger/<your_applet_name>/with/key/<your
 Update <your_applet_name> and <your_webhook_key> with the relevant data from your 
 IFTTT account.
 
+### Usage as a CLI script
 You can send a push notification to your IFTTT mobile app with a `message` and a `link` (URL).
 
 Example command:
@@ -34,7 +35,7 @@ If you want to use this project as a library, you can use directly the `PushNoti
 
 In order to instantiate it, you need concrete objects for its dependencies:
 * `ClientInterface`, from GuzzleHttp library
-* `ConfigParser`, internal class that requires the path to the config ini file
+* `ConfigParser`, internal class that requires the path to the `config ini` file
 
 Example of usage:
 ```

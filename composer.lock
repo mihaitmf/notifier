@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e5b13cde1baf9113973ca5221909dee3",
+    "content-hash": "b9c4a1e5be1a06ae53bbf80afdab5acd",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -392,6 +392,77 @@
                 "source": "https://github.com/guzzle/psr7/tree/1.7.0"
             },
             "time": "2020-09-30T07:37:11+00:00"
+        },
+        {
+            "name": "mihaitmf/common-utils",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mihaitmf/common-utils.git",
+                "reference": "d23c02e2a9e1cf8189660ef1cf32a3392aa91e0d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mihaitmf/common-utils/zipball/d23c02e2a9e1cf8189660ef1cf32a3392aa91e0d",
+                "reference": "d23c02e2a9e1cf8189660ef1cf32a3392aa91e0d",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/annotations": "^1",
+                "php": "^7.4",
+                "php-di/php-di": "^6"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "CommonUtils\\": [
+                        "src/"
+                    ]
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "CommonUtils\\Tests\\": "test/"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "vendor/bin/phpunit --testdox --configuration phpunit.xml --testsuite tests"
+                ]
+            },
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Mihai Tmf",
+                    "email": "mihai.tmf@gmail.com",
+                    "homepage": "https://github.com/mihaitmf",
+                    "role": "Owner"
+                }
+            ],
+            "description": "Collection of common utility classes: DI Container, Config Parser, Command",
+            "homepage": "https://github.com/mihaitmf/common-utils",
+            "keywords": [
+                "command",
+                "common",
+                "common-utils",
+                "config",
+                "container",
+                "di",
+                "mihaitmf",
+                "utility",
+                "utils"
+            ],
+            "support": {
+                "source": "https://github.com/mihaitmf/common-utils/tree/main",
+                "issues": "https://github.com/mihaitmf/common-utils/issues"
+            },
+            "time": "2020-11-20T22:33:37+00:00"
         },
         {
             "name": "opis/closure",
@@ -3865,7 +3936,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "mihaitmf/common-utils": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

@@ -2,11 +2,11 @@
 
 namespace Notifier\PushNotification;
 
+use CommonUtils\Config\Config;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Psr7\Request;
 use JsonException;
-use Notifier\Common\Config\Config;
 use RuntimeException;
 
 class PushNotificationService

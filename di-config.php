@@ -1,9 +1,9 @@
 <?php
 
+use CommonUtils\Config\Config;
+use CommonUtils\Config\ConfigIniParser;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
-use Notifier\Common\Config\Config;
-use Notifier\Common\Config\ConfigIniParser;
 use function DI\autowire;
 use function DI\factory;
 

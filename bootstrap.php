@@ -1,6 +1,6 @@
 <?php
 
-use Notifier\Common\Container;
+use CommonUtils\DI\Container;
 
 require_once __DIR__ . '/vendor/autoload.php';
 

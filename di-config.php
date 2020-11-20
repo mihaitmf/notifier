@@ -7,12 +7,7 @@ use function DI\autowire;
 use function DI\factory;
 
 return [
-    ClientInterface::class => autowire(Client::class)->constructorParameter(
-        'config',
-        [
-            'verify' => false, // turn off SSL verification
-        ]
-    ),
+    ClientInterface::class => autowire(Client::class),
     ConfigParser::class => factory(
         function () {
             return ConfigParser::fromFile(__DIR__ . DIRECTORY_SEPARATOR . 'config.ini');

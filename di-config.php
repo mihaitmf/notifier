@@ -3,16 +3,19 @@
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use Notifier\Common\ConfigParser;
+use function DI\autowire;
+use function DI\factory;
 
 return [
-    ClientInterface::class => static function () {
-        return new Client(
-            [
-                'verify' => false, // turn off SSL verification
-            ]
-        );
-    },
-    ConfigParser::class => static function () {
-        return ConfigParser::fromFile(__DIR__ . DIRECTORY_SEPARATOR . 'config.ini');
-    }
+    ClientInterface::class => autowire(Client::class)->constructorParameter(
+        'config',
+        [
+            'verify' => false, // turn off SSL verification
+        ]
+    ),
+    ConfigParser::class => factory(
+        function () {
+            return ConfigParser::fromFile(__DIR__ . DIRECTORY_SEPARATOR . 'config.ini');
+        }
+    ),
 ];

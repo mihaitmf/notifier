@@ -43,5 +43,10 @@
     "psr-4": {
       "Notifier\\Tests\\": "test/"
     }
+  },
+  "scripts": {
+    "test": [
+      "vendor/bin/phpunit --testdox --configuration phpunit.xml --testsuite tests"
+    ]
   }
 }

@@ -1,15 +1,18 @@
 # Notifier project
+[![Github Workflow Status](https://github.com/mihaitmf/notifier/workflows/PHP%20Composer%20Tests/badge.svg)](https://github.com/mihaitmf/notifier/actions?query=workflow%3A%22PHP+Composer+Tests%22)
+[![Travis Build Status](https://travis-ci.com/mihaitmf/notifier.svg?branch=main)](https://travis-ci.com/mihaitmf/notifier)
+
 Notifications sender. Send push notifications to phone via IFTTT webhook.
 
-[![Build Status](https://travis-ci.com/mihaitmf/notifier.svg?branch=main)](https://travis-ci.com/mihaitmf/notifier)
-
 ## Requirements
-- [![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D7.4-blue)](https://php.net/)
-- composer
+- [![Minimum PHP Version](https://img.shields.io/badge/php-%3E=7.4-8892BF.svg)](https://php.net/) <img src="https://www.php.net/images/logos/new-php-logo.svg" width="35">
+- [![Composer](https://img.shields.io/badge/-composer-A16F22)](https://getcomposer.org) <img src="https://getcomposer.org/img/logo-composer-transparent.png" width="25">
 
-## Send push notifications to phone via IFTTT webhook.
+## Push Notifications 
+The application allows to send push notifications to phone using the
+[IFTTT service](https://ifttt.com/).
 
-You must have an IFTTT (https://ifttt.com/) account and an applet with
+You must have an [IFTTT](https://ifttt.com/) account and an applet with
 a webhook created.
 
 ### Installation
@@ -20,8 +23,8 @@ file, in the root of the project, with this structure:
 [push_notification]
 webhook_url = "https://maker.ifttt.com/trigger/<your_applet_name>/with/key/<your_webhook_key>"
 ```
-Update <your_applet_name> and <your_webhook_key> with the relevant data
-from your IFTTT account.
+Update `<your_applet_name>` and `<your_webhook_key>` with the relevant data
+found your IFTTT account, [Webhook service documentation](https://ifttt.com/maker_webhooks).
 
 ### Usage as a CLI script
 You can send a push notification to your IFTTT mobile app with a `message`
@@ -64,3 +67,4 @@ return [
     ),
 ];
 ``` 
+### Enjoy!

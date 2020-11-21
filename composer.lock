@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b9c4a1e5be1a06ae53bbf80afdab5acd",
+    "content-hash": "28576fc97254dc8de243329e315907dd",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -399,18 +399,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mihaitmf/common-utils.git",
-                "reference": "7814fc95f0091adc1ef31b950c55cdf653bf2bdf"
+                "reference": "ec3704ffdacd06603917d4fb4c6644fc5386e1ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mihaitmf/common-utils/zipball/7814fc95f0091adc1ef31b950c55cdf653bf2bdf",
-                "reference": "7814fc95f0091adc1ef31b950c55cdf653bf2bdf",
+                "url": "https://api.github.com/repos/mihaitmf/common-utils/zipball/ec3704ffdacd06603917d4fb4c6644fc5386e1ef",
+                "reference": "ec3704ffdacd06603917d4fb4c6644fc5386e1ef",
                 "shasum": ""
             },
             "require": {
                 "doctrine/annotations": "^1",
                 "php": "^7.4",
-                "php-di/php-di": "^6"
+                "php-di/php-di": "^6",
+                "symfony/console": "^5"
             },
             "require-dev": {
                 "phpunit/phpunit": "^9"
@@ -462,7 +463,7 @@
                 "source": "https://github.com/mihaitmf/common-utils/tree/main",
                 "issues": "https://github.com/mihaitmf/common-utils/issues"
             },
-            "time": "2020-11-20T23:38:24+00:00"
+            "time": "2020-11-21T01:04:23+00:00"
         },
         {
             "name": "opis/closure",

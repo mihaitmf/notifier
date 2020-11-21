@@ -1,7 +1,7 @@
 <?php
 
+use CommonUtils\Command\ConsoleEventListener;
 use CommonUtils\DI\Container;
-use Notifier\Common\Command\ConsoleEventListener;
 use Notifier\PushNotification\Command\PushNotificationCommand;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\ConsoleEvents;

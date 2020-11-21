@@ -44,7 +44,7 @@ You will need to create instances for its dependencies, which are:
 * `Config`, created with the `ConfigIniParser` that requires the path to
 the `config ini` file
 
-Example of usage:
+#### Usage example
 ```
 $pushNotificationService = new Notifier\PushNotification\PushNotificationService(
     new GuzzleHttp\Client(),
@@ -52,6 +52,7 @@ $pushNotificationService = new Notifier\PushNotification\PushNotificationService
 );
 $pushNotificationService->notify('Hello my friend!', 'http://google.com');
 ```
+
 If you are using a DI library, you can include these instantiations into
 the DI definitions file.
 

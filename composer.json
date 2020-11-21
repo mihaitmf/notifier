@@ -24,8 +24,6 @@
   "require": {
     "php": "^7.4",
     "ext-json": "*",
-    "php-di/php-di": "^6",
-    "doctrine/annotations": "^1",
     "guzzlehttp/guzzle": "^7",
     "symfony/console": "^5",
     "symfony/event-dispatcher": "^5",

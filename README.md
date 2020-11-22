@@ -1,6 +1,6 @@
 # Notifier project
 [![Github Workflow Status](https://github.com/mihaitmf/notifier/workflows/PHP%20Composer%20Tests/badge.svg)](https://github.com/mihaitmf/notifier/actions?query=workflow%3A%22PHP+Composer+Tests%22)
-[![Travis Build Status](https://travis-ci.com/mihaitmf/notifier.svg?branch=main)](https://travis-ci.com/mihaitmf/notifier)
+[![Travis Build Status](https://travis-ci.org/mihaitmf/notifier.svg?branch=main)](https://travis-ci.org/mihaitmf/notifier)
 
 Notifications sender. Send push notifications to phone via IFTTT webhook.
 
